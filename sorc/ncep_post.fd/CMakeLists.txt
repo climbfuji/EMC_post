@@ -193,7 +193,7 @@ set(module_dir "${CMAKE_CURRENT_BINARY_DIR}/include")
 add_library(${LIBNAME} ${LIB_SRC})
 set_target_properties(${LIBNAME} PROPERTIES Fortran_MODULE_DIRECTORY
                                             ${module_dir})
-target_include_directories(${LIBNAME} PUBLIC ${NETCDF_INCLUDES} ${module_dir})
+target_include_directories(${LIBNAME} PUBLIC ${NETCDF_INCLUDE_DIRS} ${module_dir})
 target_link_libraries(
   ${LIBNAME}
   sp_4
@@ -226,10 +226,7 @@ add_executable(${EXENAME} ${EXE_SRC})
 target_link_libraries(
   ${EXENAME}
   ${LIBNAME}
-  ${NETCDF_LIBRARIES_F90}
   ${NETCDF_LIBRARIES}
-  ${HDF5_HL_LIBRARIES}
-  ${HDF5_LIBRARIES}
   ${CMAKE_DL_LIBS})
 
 install(TARGETS ${EXENAME} RUNTIME DESTINATION bin)
