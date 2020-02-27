@@ -226,10 +226,7 @@ add_executable(${EXENAME} ${EXE_SRC})
 target_link_libraries(
   ${EXENAME}
   ${LIBNAME}
-  ${NETCDF_LIBRARIES_F90}
   ${NETCDF_LIBRARIES}
-  ${HDF5_HL_LIBRARIES}
-  ${HDF5_LIBRARIES}
   ${CMAKE_DL_LIBS})
 
 install(TARGETS ${EXENAME} RUNTIME DESTINATION bin)
